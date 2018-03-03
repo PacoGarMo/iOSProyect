@@ -17,10 +17,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var btnCard: UIButton!
     @IBOutlet weak var totalLabel: UILabel!
     
-    let p1 = ProductBakery(name: "pan", category: "panaderia", price: 0.30)
-    let p2 = ProductBakery(name: "palmera", category: "bolleria", price: 0.80)
-    let p3 = ProductBakery(name: "panini", category: "pizza", price: 1.50)
-    let p4 = ProductBakery(name: "croisant", category: "croisant", price: 0.60)
+    //let p1 = ProductBakery(name: "pan", category: "panaderia", price: 0.30)
+    //let p2 = ProductBakery(name: "palmera", category: "bolleria", price: 0.80)
+    //let p3 = ProductBakery(name: "panini", category: "pizza", price: 1.50)
+    //let p4 = ProductBakery(name: "croisant", category: "croisant", price: 0.60)
     
     
     var categoryArray = ["panaderia", "bolleria", "pizza", "croisant"]
@@ -35,10 +35,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        productArray.append(p1)
-        productArray.append(p2)
-        productArray.append(p3)
-        productArray.append(p4)
+        //productArray.append(p1)
+        //productArray.append(p2)
+        //productArray.append(p3)
+        //productArray.append(p4)
         
         ProductCollectionView.delegate = self
         CategoryCollectionView.delegate = self
@@ -59,6 +59,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     //MARK: Actions
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.ProductCollectionView{
             print("SelectCount: ", catSelectArray.count)
@@ -73,8 +74,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         if collectionView == self.ProductCollectionView{
             let prodcutCell: ProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCollectionViewCell
-            print("paso: " + catSelectArray[indexPath.row].name!)
-            prodcutCell.productTilte.text = catSelectArray[indexPath.row].name
+            print("paso: " + catSelectArray[indexPath.row].product!)
+            prodcutCell.productTilte.text = catSelectArray[indexPath.row].product
             
             prodcutCell.indexPath = indexPath
             
@@ -93,9 +94,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func productDetails(indexPath: IndexPath) {
         let cell : ProductCollectionViewCell = ProductCollectionView!.cellForItem(at: indexPath) as! ProductCollectionViewCell
-        var name = cell.productTilte.text
+        let name = cell.productTilte.text
         for product in catSelectArray{
-            if product.name == name{
+            if product.product == name{
                 send = product
             }
         }
@@ -110,10 +111,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             var added = false
             var product = ProductBakery()
             for productFiltered in catSelectArray{
-                if productFiltered.name == prodcutCell.productTilte.text{
+                if productFiltered.product == prodcutCell.productTilte.text{
                     product = productFiltered
                     for addedProduct in cardProduct{
-                        if productFiltered.name == addedProduct.name{
+                        if productFiltered.product == addedProduct.name{
                             added = true
                             addedProduct.amount = addedProduct.amount! + 1
                         }
@@ -124,7 +125,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
             if added == false {
                 //añadimos al carro
-                let newProduct = CardBakery(name: product.name!, category: product.category!, price: product.price!, amount:1)
+                let newProduct = CardBakery(name: product.product!, category: product.idfamily!, price: product.price!, amount:1)
                 cardProduct.append(newProduct)
             }
             
@@ -148,8 +149,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 if categoryCell.categoryTitle.text == category{
                     print("Cat: " + category)
                     for product in productArray{
-                        if product.category == category{
-                            print("Product: " + product.name!)
+                        if product.idfamily == category{
+                            print("Product: " + product.product!)
                             catSelectArray.append(product)
                             print(catSelectArray.count)
                         }

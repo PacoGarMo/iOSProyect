@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, callBack {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, callBack, UISearchResultsUpdating {
 
     //MARK: Properties
     @IBOutlet weak var mainControllerProduct: UICollectionView!
@@ -23,6 +23,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var productArray = [ProductBakery]()
     var cardProduct = [CardBakery]()
+    
+    //MARK: Search properties
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredProduct = [ProductBakery]()
     
     var totalPrice: Double = 0.0
     var send : ProductBakery?
@@ -40,6 +44,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         self.view.addSubview(mainControllerProduct)
         // Do any additional setup after loading the view.
+        
+        //MARK: Inicializar search
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Candies"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,7 +71,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func productDetails(indexPath: IndexPath) {
         let cell : MainProductCollectionViewCell = mainControllerProduct!.cellForItem(at: indexPath) as! MainProductCollectionViewCell
-        var name = cell.productTilteMain.text
+        let name = cell.productTilteMain.text
         for product in productArray{
             if product.name == name{
                 send = product
@@ -69,12 +80,23 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if isFiltering(){
+            return filteredProduct.count
+        }
+        
         return productArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let prodcutCell: MainProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainProductCell", for: indexPath) as! MainProductCollectionViewCell
-        prodcutCell.productTilteMain.text = productArray[indexPath.row].name
+        let product: ProductBakery
+        if isFiltering() {
+            product = filteredProduct[indexPath.row]
+        } else {
+            product = productArray[indexPath.row]
+        }
+        prodcutCell.productTilteMain.text = product.name
         
         prodcutCell.indexPath = indexPath
         
@@ -132,6 +154,28 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         
         detailsViewController.productObject = send
+    }
+    
+    //MARK: Search actions
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredProduct = productArray.filter({( product : ProductBakery) -> Bool in
+            return product.name!.lowercased().contains(searchText.lowercased())
+        })
+        
+        self.mainControllerProduct.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
 
 }

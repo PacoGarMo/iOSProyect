@@ -22,6 +22,7 @@
 		EB53C3C7203AB71800624B92 /* ProductBakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53C3C6203AB71800624B92 /* ProductBakery.swift */; };
 		EBD9BFD7204AFC300039D207 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BFD6204AFC300039D207 /* MainViewController.swift */; };
 		EBD9BFD9204AFE250039D207 /* MainProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BFD8204AFE250039D207 /* MainProductCollectionViewCell.swift */; };
+		EBD9BFDB204B254D0039D207 /* CategoryBakery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BFDA204B254D0039D207 /* CategoryBakery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		EB53C3C6203AB71800624B92 /* ProductBakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBakery.swift; sourceTree = "<group>"; };
 		EBD9BFD6204AFC300039D207 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EBD9BFD8204AFE250039D207 /* MainProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		EBD9BFDA204B254D0039D207 /* CategoryBakery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBakery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +122,7 @@
 				EB125E4E20356EB9001C1BCA /* LaunchScreen.storyboard */,
 				EB125E5120356EB9001C1BCA /* Info.plist */,
 				EB4A1B172036E3CF001A0482 /* CollectionCell */,
-				EB53C3C6203AB71800624B92 /* ProductBakery.swift */,
+				EBD9BFDC204B25780039D207 /* BakeryClass */,
 				EB0242F8203EC681008BE470 /* DetailsViewController.swift */,
 				EB3178F12047E3500058E190 /* CardBakery.swift */,
 				3305C07920482AB800D98754 /* DetailsCallBack.swift */,
@@ -155,6 +157,15 @@
 				EBD9BFD8204AFE250039D207 /* MainProductCollectionViewCell.swift */,
 			);
 			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		EBD9BFDC204B25780039D207 /* BakeryClass */ = {
+			isa = PBXGroup;
+			children = (
+				EB53C3C6203AB71800624B92 /* ProductBakery.swift */,
+				EBD9BFDA204B254D0039D207 /* CategoryBakery.swift */,
+			);
+			path = BakeryClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +309,7 @@
 				EB4A1B142036E3A6001A0482 /* CategoryCollectionViewCell.swift in Sources */,
 				3305C07A20482AB800D98754 /* DetailsCallBack.swift in Sources */,
 				EB53C3C7203AB71800624B92 /* ProductBakery.swift in Sources */,
+				EBD9BFDB204B254D0039D207 /* CategoryBakery.swift in Sources */,
 				EB4A1B162036E3BC001A0482 /* ProductCollectionViewCell.swift in Sources */,
 				EBD9BFD7204AFC300039D207 /* MainViewController.swift in Sources */,
 				EB125E4620356EB9001C1BCA /* AppDelegate.swift in Sources */,

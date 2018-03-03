@@ -324,6 +324,7 @@
                                 <rect key="frame" x="24" y="20" width="327" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="QkZ-gf-IWC"/>
+                                    <constraint firstAttribute="width" secondItem="EFg-Sd-7Ci" secondAttribute="height" multiplier="327:128" id="dUm-nG-JdM"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="327" id="svS-7q-6i6"/>
                                 </constraints>
                             </imageView>
@@ -331,23 +332,26 @@
                                 <rect key="frame" x="25" y="164" width="323" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xKG-UO-Azu">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="60"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="labelNameProduct" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pl-4B-m1L">
-                                                <rect key="frame" x="0.0" y="0.0" width="160" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" restorationIdentifier="labelNameProduct" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pl-4B-m1L">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="X6p-un-egY"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCategory" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHc-2z-Svg">
-                                                <rect key="frame" x="0.0" y="20.5" width="160" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="30" width="160" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="41" id="BQN-P2-eDf"/>
+                                            <constraint firstAttribute="height" constant="60" id="BQN-P2-eDf"/>
                                             <constraint firstAttribute="width" constant="160" id="UXX-aG-QtQ"/>
                                         </constraints>
                                     </stackView>
@@ -364,7 +368,7 @@
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrM-Wf-tWR">
-                                <rect key="frame" x="25" y="232" width="326" height="305"/>
+                                <rect key="frame" x="25" y="232" width="326" height="419"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjd-Oe-QRP">
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -380,35 +384,23 @@
                                     <constraint firstAttribute="bottom" secondItem="Pjd-Oe-QRP" secondAttribute="bottom" id="RVg-09-DGl"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="cardButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5b-lC-G0j">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="1Bf-iV-xPs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Carro"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3Sf-4E-rCu" firstAttribute="bottom" secondItem="K5b-lC-G0j" secondAttribute="bottom" id="2L7-6Y-4Qi"/>
-                            <constraint firstItem="K5b-lC-G0j" firstAttribute="leading" secondItem="3Sf-4E-rCu" secondAttribute="leading" id="4bH-bU-Ipd"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="EFg-Sd-7Ci" secondAttribute="trailing" constant="8" id="8BN-fI-6Xw"/>
                             <constraint firstItem="3Sf-4E-rCu" firstAttribute="trailing" secondItem="QrM-Wf-tWR" secondAttribute="trailing" constant="24" id="AqX-Rr-Woc"/>
-                            <constraint firstItem="3Sf-4E-rCu" firstAttribute="trailing" secondItem="K5b-lC-G0j" secondAttribute="trailing" id="Ccv-Kh-39h"/>
                             <constraint firstItem="cSK-Wa-Cfz" firstAttribute="leading" secondItem="jZn-gA-hJe" secondAttribute="leadingMargin" constant="9" id="DXz-9b-IGY"/>
                             <constraint firstAttribute="topMargin" secondItem="EFg-Sd-7Ci" secondAttribute="top" id="Isu-BD-jht"/>
                             <constraint firstItem="cSK-Wa-Cfz" firstAttribute="top" secondItem="EFg-Sd-7Ci" secondAttribute="bottom" constant="16" id="TlJ-BM-EB7"/>
                             <constraint firstItem="QrM-Wf-tWR" firstAttribute="leading" secondItem="3Sf-4E-rCu" secondAttribute="leading" constant="25" id="UmZ-gH-DXx"/>
                             <constraint firstItem="EFg-Sd-7Ci" firstAttribute="leading" secondItem="jZn-gA-hJe" secondAttribute="leadingMargin" constant="8" id="Wz1-bM-MgP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cSK-Wa-Cfz" secondAttribute="trailing" constant="11" id="foy-9k-Zjw"/>
-                            <constraint firstItem="K5b-lC-G0j" firstAttribute="top" secondItem="QrM-Wf-tWR" secondAttribute="bottom" constant="70" id="gWc-R5-zfQ"/>
                             <constraint firstItem="QrM-Wf-tWR" firstAttribute="top" secondItem="cSK-Wa-Cfz" secondAttribute="bottom" constant="8" id="t4a-oY-g4f"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="QrM-Wf-tWR" secondAttribute="bottom" constant="16" id="ukl-sW-bh1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Sf-4E-rCu"/>
                     </view>
                     <connections>
-                        <outlet property="btnCard" destination="K5b-lC-G0j" id="lBl-Xe-zBL"/>
                         <outlet property="imageProduct" destination="EFg-Sd-7Ci" id="3qd-Sh-iw9"/>
                         <outlet property="labelCategory" destination="uHc-2z-Svg" id="9rR-af-gew"/>
                         <outlet property="labelDescription" destination="Pjd-Oe-QRP" id="Ojc-PU-myg"/>
